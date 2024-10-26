@@ -64,7 +64,10 @@ function verificaCampo(campo) {
     if (campo.validity[erro]) {
       mensagem = mensagens[campo.name][erro];
     }
-  });
+    if (campo.validity.customError) {
+      mensagem= campo.validationMessage;
+    }
+  })
 
   const mensagemErro = campo.parentNode.querySelector('.mensagem-erro');
 
